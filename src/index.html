@@ -10,34 +10,56 @@
     <link type="text/css" rel="stylesheet" media="screen" href="resources/css/font-awesome.css"/>
     <link type="text/css" rel="stylesheet" media="screen" href="resources/css/animate.css" />
     
-    <script id="main-screen-tpl" type="text/html">
-      <div class="container-fluid" id="main-screen">
+    <script id="start-screen-tpl" type="text/html">
+      <div class="container-fluid" id="start-screen">
         <div class="row-fluid">&nbsp;</div>
         <div class="row-fluid">&nbsp;</div>
         <div class="row-fluid">
-	    <div class="center">   
-	  <div class="hero-unit">
-     
-	    <h1>Pic Saw</h1>
-	    &nbsp;
-	    <h3><i>A highly addictive sliding picture tiles puzzle.</i></h3>
-	    &nbsp;
-
-
-	    <p>Choose a level to start the game.</p>
-	    <p>
-	      <a class="btn btn-success btn-large">Novice</a>
-	      <a class="btn btn-warning btn-large">Proficient</a>
-	      <a class="btn btn-danger btn-large">Expert</a>
-	    </p>
-          </div>
+	  <div class="center">   
+	    <div class="hero-unit">
+	      
+	      <h1>Pic Saw</h1>
+	      &nbsp;
+	      <h3><i>A highly addictive sliding picture tiles puzzle.</i></h3>
+	      &nbsp;
+	      <p>Choose a level to start the game.</p>
+	      <p>
+		<a id="L1" class="btn btn-success btn-large">Novice</a>
+		<a id="L2" class="btn btn-warning btn-large">Proficient</a>
+		<a id="L3" class="btn btn-danger btn-large">Expert</a>
+	      </p>
+            </div>
 	  </div>
-	  </div>
+	</div>
       </div>
     </script>
     
-  </head>
+    <script id="game-screen-tpl" type="text/html">
+      <div class="container-fluid" id="game-screen">
+        <div class="row-fluid">&nbsp;</div>
+	<div class="center">   
+	  
+	  <canvas id="puzzle" width="500px" height="500px"></canvas>
 
+	  <div class="btn-toolbar">
+	    <div class="btn-group">
+	      <a id="B1" class="btn"><i class="icon-play"></i> Start</a>
+	      <a id="B2" class="btn"><i class="icon-stop"></i> Stop</a>
+	      <a id="B2" class="btn"><i class="icon-random"></i> Shuffle</a>	      
+	    </div>
+	    <div class="btn-group">
+	      <a id="B4" class="btn" data-toggle="button"><i class="icon-white icon-question-sign"></i> Hint</a>
+	    </div>
+	    <div class="btn-group">
+	      <a id="B5" class="btn btn-inverse"><i class="icon-white icon-signout"></i> Back</a>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </script>
+
+  </head>
+  
   <body>
     <div id="main-body"></div>
   </body>
@@ -47,7 +69,8 @@
   <script type="text/javascript" src="resources/js/underscore.js"></script>
   <script type="text/javascript" src="resources/js/backbone.js"></script>
   <script type="text/javascript" src="resources/js/bootstrap.js"></script>
-  <script type="text/javascript" src="app/MainScreen.js"></script>
+  <script type="text/javascript" src="app/StartScreen.js"></script>
+  <script type="text/javascript" src="app/GameScreen.js"></script>
   <script type="text/javascript" src="app/main.js"></script>
 
   

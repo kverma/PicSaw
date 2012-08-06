@@ -1,0 +1,7 @@
+*~
+.sass-cache
+#*#
+*.swp
+*_log
+*.log
+.idea

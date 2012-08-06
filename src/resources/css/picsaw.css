@@ -1,6 +1,7 @@
 body {
    background-color:#eee;
 }
+
 .center
 {
     text-align: center; 
@@ -9,6 +10,9 @@ body {
     background-color:#eee;
 }
 
+#puzzle {
+    background-color: white;
+}
 @media (max-width: 1024px) {
     .list-view {
 	height: 546px;

@@ -41,9 +41,9 @@ $(function () {
 
     var Application = Backbone.Router.extend({
         routes:{
-            "":"mainscreen",
-            "login":"loginscreen",
-            "main":"mainscreen",
+            "":"startscreen",
+            "start":"startscreen",
+	    "game/:level": "gamescreen", 
             "settings":"settingsscreen",
             "about":"aboutscreen",
             "help":"helpscreen",
@@ -53,42 +53,22 @@ $(function () {
 
         },
 
-        start:function () {
-            console.log("Tracing start fn...");
-            App.navigate("#main", {trigger:true});
-        },
-
-
-        mainscreen:function () {
-            console.log("Into the main screen");
-            // fetch all articles and save in localdb
-            // controller.init();
-            /*
-             $(document).bind( "touchmove", function (e) { e.preventDefault(); return false; } );
-
-             //adding delay actually makes the app start faster, and enables loading animation to be displayed
-
-
-             bodyView.view.click( function(event) {
-             window.splitViewNavigator.showSidebar();
-             });
-
-             //Setup the ViewNavigator
-             new SplitViewNavigator( '#main-body', "Select Bookmark", "btn btn-inverse" );
-             window.splitViewNavigator.pushSidebarView( articlesView );
-             window.splitViewNavigator.pushBodyView( bodyView );
-             window.splitViewNavigator.showSidebar();
-             */
-
-            new MainScreen();
+        startscreen:function () {
+            console.log("Into the start screen");
+            new StartScreen();
             setTimeout(function () {
-                //$('#main-body').mask("Loading Articles...");
                 controller.init();
             }, 100);
         },
 
-    });
+	gamescreen: function(level) {
+	    console.log("Into the Game Level screen "+level);
+	    new GameScreen({
+		id: level
+	    });
+	},
 
+    });
 
     App = new Application();
     Backbone.history.start();
