@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="0.0.0.1" rim:header="Pic Saw">
+  <name>Pic Saw</name>
+  <description>Sliding Picture Tile Jigsaw Puzzle Game for BlackBerry PlayBook.</description>
+  <author rim:copyright="2012"  href="http://kvsysapps.tumblr.com/picsaw">Krish Verma</author>
+  <access subdomains="true" uri="*"/>
+  <rim:orientation mode="auto"/>
+  <feature id="blackberry.app" />
+  <feature id="blackberry.app.event" />
+  <feature id="blackberry.system" />
+  <feature id="blackberry.system.event" />
+  <feature id="blackberry.io.dir">
+    <rim:permit>access_shared</rim:permit>
+  </feature>
+  <feature id="blackberry.io.file">
+    <rim:permit>access_shared</rim:permit>
+  </feature>
+  <feature id="blackberry.identity">
+    <rim:permit>read_device_identifying_information</rim:permit> 
+  </feature>
+  <feature id="blackberry.invoke"/>
+  <feature id="blackberry.utils"/>
+  <feature id="blackberry.ui.dialog"/>
+  <feature id="webworks.io.fileTransfer"/>
+  <icon src="resources/img/logo.png"/>
+  <content src="start.html"/>
+</widget>
