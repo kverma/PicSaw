@@ -3,6 +3,14 @@ body {
     background-color:#eee;
 }
 
+.moves {
+    font-size: 19px;
+    height: auto;
+    padding: 0px 10px 0px 10px;
+    text-align: center;
+    vertical-align: super;
+}
+
 .toolbar {
     margin-top: 8px;
     margin-bottom: 8px;
@@ -12,7 +20,7 @@ body {
     .vcenter {
 	height: 590px;
 	line-height: 590px;
-	background-color: #BBD8E9;
+//	background-color: #BBD8E9;
 	text-align: center;
 	vertical-align: middle;
     }
@@ -21,7 +29,7 @@ body {
     .vcenter {
 	height: 31px;
 	line-height: 31px;
-	background-color: #BBD8E9;
+//	background-color: #BBD8E9;
 	text-align: center;
 	vertical-align: middle;
     }

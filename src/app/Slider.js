@@ -7,21 +7,21 @@ function SliderCtlr (numberofrows, boardsize) {
 
 SliderCtlr.prototype = {
     init: function() {
-	this.img = new Image();
-	this.tileSize = this.boardSize / this.tileCount;
-	this.clickLoc = new Object;
-	this.clickLoc.x = 0;
-	this.clickLoc.y = 0;
-	this.emptyLoc = new Object;
-	this.emptyLoc.x = 0;
-	this.emptyLoc.y = 0;
-	this.solved = false;
-	this.boardParts = new Object;
-	this.canvas = null
-	this.context = null;
-	this.showhint = false;
-	this.setBoard();
-	this.getCanvasCtx();
+	ctlr.img = new Image();
+	ctlr.tileSize = ctlr.boardSize / ctlr.tileCount;
+	ctlr.clickLoc = new Object;
+	ctlr.clickLoc.x = 0;
+	ctlr.clickLoc.y = 0;
+	ctlr.emptyLoc = new Object;
+	ctlr.emptyLoc.x = 0;
+	ctlr.emptyLoc.y = 0;
+	ctlr.solved = false;
+	ctlr.boardParts = new Object;
+	ctlr.canvas = null
+	ctlr.context = null;
+	ctlr.showhint = false;
+	ctlr.setBoard();
+	ctlr.getCanvasCtx();
     },
 
     getCanvasCtx:function() {
@@ -70,16 +70,23 @@ SliderCtlr.prototype = {
 					   j * ctlr.tileSize, 
 					   ctlr.tileSize, 
 					   ctlr.tileSize);
-		    ctlr.context.fillStyle="white";
 		    ctlr.context.strokeStyle="white";
 		    ctlr.context.strokeRect(i * ctlr.tileSize, 
 					    j * ctlr.tileSize, 
 					    ctlr.tileSize,
 					    ctlr.tileSize);
-		    
-		    ctlr.context.strokeText(" "+(ctlr.tileCount*x+y+1), 
+		    if(ctlr.showhint) {
+			ctlr.context.font="10pt Ubuntu";
+			ctlr.context.strokeStyle="black";
+			ctlr.context.fillStyle="yellow";
+			ctlr.context.strokeText(" "+(ctlr.tileCount*x+y+1), 
+					    i * ctlr.tileSize+10, 
+					    j * ctlr.tileSize+20);
+			ctlr.context.fillText(" "+(ctlr.tileCount*x+y+1), 
 					  i * ctlr.tileSize+10, 
 					  j * ctlr.tileSize+20);
+		    }
+
 		}
 	    }
 	}
@@ -102,6 +109,7 @@ SliderCtlr.prototype = {
 		ctlr.tileCount - 1;
 	    toLoc.x = fromLoc.x;
 	    toLoc.y = fromLoc.y;
+	    //gs.incrMoves();
 	    ctlr.checkSolved();
 	}
     },
@@ -119,15 +127,20 @@ SliderCtlr.prototype = {
 	ctlr.solved = flag;
     },
 
-    shuffle: function() {
+    toggleHintDisplay: function () {
+	ctlr.showhint = !ctlr.showhint;
+	ctlr.drawTiles();
+    },
+
+    shuffleTiles: function() {
 	
     },
 
     addListeners: function() {
 	ctlr.canvas.onclick = function(e) {
-	    ctlr.clickLoc.x = Math.floor((e.pageX - ctlr.offsetLeft) / 
+	    ctlr.clickLoc.x = Math.floor((e.pageX - window.offsetLeft) / 
 					 ctlr.tileSize);
-	    ctlr.clickLoc.y = Math.floor((e.pageY - ctlr.offsetTop) / 
+	    ctlr.clickLoc.y = Math.floor((e.pageY - window.offsetTop) / 
 					 ctlr.tileSize);   
 	    if (ctlr.distance(ctlr.clickLoc.x, 
 			      ctlr.clickLoc.y, 

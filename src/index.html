@@ -8,6 +8,7 @@
 
     <link type="text/css" rel="stylesheet" media="screen" href="resources/css/bootstrap.css"/>
     <link type="text/css" rel="stylesheet" media="screen" href="resources/css/bootstrap-responsive.css"/>
+    <link type="text/css" rel="stylesheet" media="screen" href="resources/css/timer.css"/>
     <link type="text/css" rel="stylesheet" media="screen" href="resources/css/picsaw.css"/>
     <link type="text/css" rel="stylesheet" media="screen" href="resources/css/font-awesome.css"/>
     <link type="text/css" rel="stylesheet" media="screen" href="resources/css/animate.css" />
@@ -40,32 +41,57 @@
       <div class="container-fluid" id="game-screen">
         <div class="row-fluid">
 	  <div class="span12">
-	    <div class="span3 ">
-	      <p class="vcenter"> Level : 1</p>
+	    <div class="span2">
+	      <p class="vcenter">
+		<a id="B1" class="btn"><i class="icon-white icon-chevron-left"></i> Back</a>
+	      </p>
+
 	    </div>
-	    <div class="span7 center">
-	      <div class="btn-toolbar toolbar">
-		<div class="btn-group" data-toggle="buttons-radio">
-		  <a id="B1" class="btn"><i class="icon-play"></i> Play</a>
-		  <a id="B2" class="btn"><i class="icon-pause"></i> Pause</a>
-		  <a id="B3" class="btn"><i class="icon-stop"></i> Stop</a>	
-		</div>
-	      </div>
+	    <div class="span8 center">
+
+              <div class="row-fluid"><h2>Level 1</h2></div>
+
 	      <canvas id="puzzle" width="480px" height="480px"></canvas>
 	      <div class="btn-toolbar toolbar">
 		<div class="btn-group">
-		  <a id="B4" class="btn"><i class="icon-white icon-random"></i> Shuffle</a>
+		  <a id="B2" class="btn"><i class="icon-white icon-random"></i> Shuffle</a>
 		</div>
 		<div class="btn-group">
-		  <a id="B5" class="btn" data-toggle="button"><i class="icon-white icon-question-sign"></i> Hint</a>
+		  <a id="B3" class="btn" data-toggle="button"><i class="icon-white icon-question-sign"></i> Hint</a>
 		</div>
 		<div class="btn-group">
-		  <a id="B6" class="btn btn-inverse"><i class="icon-white icon-eject"></i> Back</a>
+		  <a id="B4" class="btn" data-toggle="button"><i class="icon-play"></i> Play | <i class="icon-stop"></i> Stop</a>
+		</div>
+		<div class="btn-group">
+		  <span id="movecount" class="label label-inverse moves">Moves 0</span>
+		</div>
+
+		<div class="btn-group">
+		  <input id="start" name="tcontrols" type="radio" />
+		  <input id="stop" name="tcontrols" type="radio" />
+		  <input id="reset" name="tcontrols" type="radio" />
+		  <div class="timer">
+		    <div class="tcell">
+		      <div class="numbers tenminute movesix">0 1 2 3 4 5 6</div>
+		    </div>
+		    <div class="tcell">
+		      <div class="numbers minute moveten">0 1 2 3 4 5 6 7 8 9</div>
+		    </div>
+		    <div class="tcell divider"><div class="numbers">:</div></div>
+		    <div class="tcell">
+		      <div class="numbers tensecond movesix">0 1 2 3 4 5 6</div>
+		    </div>
+		    <div class="tcell">
+		      <div class="numbers second moveten">0 1 2 3 4 5 6 7 8 9</div>
+		    </div>
+		  </div>
+		</div>
 	      </div>
 	    </div>
-	    </div>
-	    <div class="span2 ">
-	      <p class="vcenter"> Level : 1</p>
+	    <div class="span2">
+	      <p class="vcenter">
+		<a id="B5" class="btn"><i class="icon-white icon-refresh"></i> <i class="icon-white icon-picture"></i> </a>
+	      </p>
 	    </div>
 	  </div>
 	</div>
@@ -79,15 +105,16 @@
   </body>
   
   <script type="text/javascript" src="resources/js/jquery-1.7.2.js"></script>
+  <script type="text/javascript" src="resources/js/prefixfree.min.js"></script>
   <script type="text/javascript" src="resources/js/jquery-0.4.loadmask.js"></script>
   <script type="text/javascript" src="resources/js/underscore.js"></script>
   <script type="text/javascript" src="resources/js/backbone.js"></script>
   <script type="text/javascript" src="resources/js/bootstrap.js"></script>
-  <script type="text/javascript" src="app/Slider.js"></script> 
+  <script type="text/javascript" src="app/main.js"></script>
   <script type="text/javascript" src="app/StartScreen.js"></script>
   <script type="text/javascript" src="app/GameScreen.js"></script>
-  <script type="text/javascript" src="app/main.js"></script>
- 
+  <script type="text/javascript" src="app/Slider.js"></script> 
+
 
   
 </html>

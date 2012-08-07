@@ -8,6 +8,7 @@
 
 
 var ctlr = null;
+var gs = null;
 
 
 $(function () {
@@ -15,8 +16,7 @@ $(function () {
     var Application = Backbone.Router.extend({
         routes:{
             "":"startscreen",
-            "start":"startscreen",
-	    "game/:level": "gamescreen", 
+ 	    "game/:level": "gamescreen", 
             "settings":"settingsscreen",
             "about":"aboutscreen",
             "help":"helpscreen",
@@ -28,13 +28,15 @@ $(function () {
 
         startscreen:function () {
             console.log("Into the start screen");
+	    ctlr = null;
+	    gs = null;
             new StartScreen();
            
         },
 
 	gamescreen: function(level) {
 	    console.log("Into the Game Level screen "+level);
-	    var gs = new GameScreen({
+	    new GameScreen({
 		id: level,
 		numofrows: level,
 		boardsize: 480,

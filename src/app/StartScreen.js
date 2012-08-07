@@ -13,11 +13,11 @@ var StartScreen = Backbone.View.extend({
         var t = this;
         var el = $(this.el);
 
-        el.fadeOut('fast', function () {
+//        el.fadeOut('fast', function () {
             el.empty();
             el.html(t.template({}));
-            el.fadeIn('fast');
-        });
+  //          el.fadeIn('fast');
+    //    });
     },
 
     events:{
