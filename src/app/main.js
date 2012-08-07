@@ -6,35 +6,8 @@
  *
  */
 
-function MainAppCtlr() {
-    this.version = "0.1";
-}
 
-MainAppCtlr.prototype.init = function () {
-//    this.syncList();
-}
-
-// View of the about screen
-var AboutScreen = Backbone.View.extend({
-    el:"#hk-main",
-    template:_.template($("#about-screen").text()),
-
-    initialize:function () {
-        this.render();
-    },
-    render:function () {
-        var t = this;
-        var el = $(this.el);
-
-        el.fadeOut('fast', function () {
-            el.empty();
-            el.html(t.template({}));
-            el.fadeIn('fast');
-        });
-    }
-});
-
-var controller = new MainAppCtlr();
+var ctlr = null;
 
 
 $(function () {
@@ -56,16 +29,20 @@ $(function () {
         startscreen:function () {
             console.log("Into the start screen");
             new StartScreen();
-            setTimeout(function () {
-                controller.init();
-            }, 100);
+           
         },
 
 	gamescreen: function(level) {
 	    console.log("Into the Game Level screen "+level);
-	    new GameScreen({
-		id: level
+	    var gs = new GameScreen({
+		id: level,
+		numofrows: level,
+		boardsize: 480,
 	    });
+	    
+	    setTimeout(function () {
+                ctlr.init();
+            }, 100);
 	},
 
     });
