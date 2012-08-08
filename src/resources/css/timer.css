@@ -1,12 +1,6 @@
-
-.tcontainer {
-    padding: 4px;
-    text-align: center;
-}
-
 .timer {
     padding: 4px 5px 4px;
-    background: linear-gradient(top, #222, #444);
+    background: -webkit-linear-gradient(top, #222, #444);
     overflow: hidden;
     display: inline-block;
     border: 2px solid #efefef;
@@ -19,8 +13,7 @@
 }
 
 .tcell {
-    /*Should only display 1 digit. Hence height = line height of .numbers
-      and width = width of .numbers*/
+    /*Should only display 1 digit. Hence height = line height of .numbers      and width = width of .numbers*/
     width: 0.60em;
     height: 15px;
     font-size: 22px;
@@ -44,69 +37,49 @@
     text-shadow: 0 0 5px rgba(255, 255, 255, 1);
 }
 
-/*Styles for the controls*/
-#timer_controls {
-    margin-top: -5px;
-}
-#timer_controls label {
-    cursor: pointer;
-    padding: 5px 10px;
-    background: #efefef;
-    font-family: arial, verdana, tahoma;
-    font-size: 11px;
-    border-radius: 0 0 3px 3px;
-}
 input[name="tcontrols"] {display: none;}
 
 /*Control code*/
-#stop:checked~.timer .numbers {animation-play-state: paused;}
-#start:checked~.timer .numbers {animation-play-state: running;}
-#reset:checked~.timer .numbers {animation: none;}
+#stop:checked~.timer .numbers {-webkit-animation-play-state: paused;}
+#start:checked~.timer .numbers {-webkit-animation-play-state: running;}
+#reset:checked~.timer .numbers {-webkit-animation: none;}
 
 .moveten {
-    /*The digits move but dont look good. We will use steps now
-      10 digits = 10 steps. You can now see the digits swapping instead of 
+    /*The digits move but dont look good. We will use steps now      10 digits = 10 steps. You can now see the digits swapping instead of
       moving pixel-by-pixel*/
-    animation: moveten 1s steps(10, end) infinite;
+    -webkit-animation: moveten 1s steps(10, end) infinite;
     /*By default animation should be paused*/
-    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
 }
 .movesix {
-    animation: movesix 1s steps(6, end) infinite;
-    animation-play-state: paused;
+    -webkit-animation: movesix 1s steps(6, end) infinite;
+    -webkit-animation-play-state: paused;
 }
 
 /*Now we need to sync the animation speed with time speed*/
 /*One second per digit. 10 digits. Hence 10s*/
-.second {animation-duration: 10s;}
-.tensecond {animation-duration: 60s;} /*60 times .second*/
+.second {-webkit-animation-duration: 10s;}
+.tensecond {-webkit-animation-duration: 60s;} /*60 times .second*/
 
-//.milisecond {animation-duration: 1s;} /*1/10th of .second*/
-//.tenmilisecond {animation-duration: 0.1s;}
-//.hundredmilisecond {animation-duration: 0.01s;}
 
-.minute {animation-duration: 600s;} /*60 times .second*/
-.tenminute {animation-duration: 3600s;} /*60 times .minute*/
+.minute {-webkit-animation-duration: 600s;} /*60 times .second*/
+.tenminute {-webkit-animation-duration: 3600s;} /*60 times .minute*/
 
-//.hour {animation-duration: 36000s;} /*60 times .minute*/
-//.tenhour {animation-duration: 360000s;} /*10 times .hour*/
 
 /*The stopwatch looks good now. Lets add some styles*/
 
 /*Lets animate the digit now - the main part of this tutorial*/
 /*We are using prefixfree, so no need of vendor prefixes*/
-/*The logic of the animation is to alter the 'top' value of the absolutely
-  positioned .numbers*/
-/*Minutes and Seconds should be limited to only '60' and not '100'
-  Hence we need to create 2 animations. One with 10 steps and 10 digits and
+/*The logic of the animation is to alter the 'top' value of the absolutely  positioned .numbers*/
+/*Minutes and Seconds should be limited to only '60' and not '100'  Hence we need to create 2 animations. One with 10 steps and 10 digits and
   the other one with 6 steps and 6 digits*/
-@keyframes moveten {
+@-webkit-keyframes moveten {
     0% {top: 0;}
     100% {top: -150px;} 
 /*height = 40. digits = 10. hence -400 to move it completely to the top*/
 }
 
-@keyframes movesix {
+@-webkit-keyframes movesix {
     0% {top: 0;}
     100% {top: -90px;} 
 /*height = 40. digits = 6. hence -240 to move it completely to the top*/
@@ -116,6 +89,5 @@ input[name="tcontrols"] {display: none;}
 /*Lets use a better font for the numbers*/
 @font-face {
     font-family: 'digital';
-    src: url('../font/ds-digi.ttf');
-    
+    src: url("../font/ds-digi.ttf");    
 }

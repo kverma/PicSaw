@@ -28,7 +28,7 @@ SliderCtlr.prototype = {
 	ctlr.canvas = document.getElementById('puzzle');
 	ctlr.context = ctlr.canvas.getContext('2d');
 	ctlr.img.src = 'http://www.brucealderman.info/Images/dimetrodon.jpg';
-	ctlr.img.addEventListener('load', ctlr.drawTiles, false);
+	ctlr.img.addEventListener('load', this.drawTiles, false);
 	
 //	ctlr.context.font(
     },
@@ -76,13 +76,13 @@ SliderCtlr.prototype = {
 					    ctlr.tileSize,
 					    ctlr.tileSize);
 		    if(ctlr.showhint) {
-			ctlr.context.font="10pt Ubuntu";
+			ctlr.context.font="12pt Ubuntu";
 			ctlr.context.strokeStyle="black";
 			ctlr.context.fillStyle="yellow";
-			ctlr.context.strokeText(" "+(ctlr.tileCount*x+y+1), 
+			ctlr.context.strokeText(" "+(ctlr.tileCount*y+x+1), 
 					    i * ctlr.tileSize+10, 
 					    j * ctlr.tileSize+20);
-			ctlr.context.fillText(" "+(ctlr.tileCount*x+y+1), 
+			ctlr.context.fillText(" "+(ctlr.tileCount*y+x+1), 
 					  i * ctlr.tileSize+10, 
 					  j * ctlr.tileSize+20);
 		    }
@@ -109,7 +109,7 @@ SliderCtlr.prototype = {
 		ctlr.tileCount - 1;
 	    toLoc.x = fromLoc.x;
 	    toLoc.y = fromLoc.y;
-	    //gs.incrMoves();
+	    gs.incrMoves();
 	    ctlr.checkSolved();
 	}
     },
@@ -138,9 +138,9 @@ SliderCtlr.prototype = {
 
     addListeners: function() {
 	ctlr.canvas.onclick = function(e) {
-	    ctlr.clickLoc.x = Math.floor((e.pageX - window.offsetLeft) / 
+	    ctlr.clickLoc.x = Math.floor((e.pageX - this.offsetLeft) / 
 					 ctlr.tileSize);
-	    ctlr.clickLoc.y = Math.floor((e.pageY - window.offsetTop) / 
+	    ctlr.clickLoc.y = Math.floor((e.pageY - this.offsetTop) / 
 					 ctlr.tileSize);   
 	    if (ctlr.distance(ctlr.clickLoc.x, 
 			      ctlr.clickLoc.y, 
@@ -156,7 +156,7 @@ SliderCtlr.prototype = {
     },
 
     removeListeners: function() {
-	ctlr.canvas.removeAttribute('onclick');
+//	ctlr.canvas.removeAttribute('onclick');
 	ctlr.canvas.onclick = null;
     },
     

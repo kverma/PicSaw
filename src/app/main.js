@@ -7,8 +7,8 @@
  */
 
 
-var ctlr = null;
-var gs = null;
+ctlr = null;
+gs = null;
 
 
 $(function () {
@@ -28,19 +28,19 @@ $(function () {
 
         startscreen:function () {
             console.log("Into the start screen");
-	    ctlr = null;
-	    gs = null;
             new StartScreen();
            
         },
 
 	gamescreen: function(level) {
 	    console.log("Into the Game Level screen "+level);
-	    new GameScreen({
+	    gs = new GameScreen({
 		id: level,
 		numofrows: level,
 		boardsize: 480,
 	    });
+//	    gs.render();
+//	    $('#main-body').html(gs.el);
 	    
 	    setTimeout(function () {
                 ctlr.init();
