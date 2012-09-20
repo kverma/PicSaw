@@ -21,7 +21,6 @@
   <feature id="blackberry.invoke"/>
   <feature id="blackberry.utils"/>
   <feature id="blackberry.ui.dialog"/>
-  <feature id="webworks.io.fileTransfer"/>
-  <icon src="resources/img/logo.png"/>
-  <content src="start.html"/>
+  <icon src="resources/img/icon.png"/>
+  <content src="index.html"/>
 </widget>
