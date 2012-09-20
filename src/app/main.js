@@ -16,7 +16,7 @@ $(function () {
     var Application = Backbone.Router.extend({
         routes:{
             "":"startscreen",
- 	    "game/:level": "gamescreen", 
+            "game/:level": "gamescreen", 
             "settings":"settingsscreen",
             "about":"aboutscreen",
             "help":"helpscreen",

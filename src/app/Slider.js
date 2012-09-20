@@ -97,38 +97,26 @@ SliderCtlr.prototype = {
     },
 
     swipeddistance:function(direction, x1, y1, x2, y2) {
-    	console.log("SW "+direction+" : clickLoc: ("+x1+","+y1+") : emptyLoc: ("+x2+","+y2+")");
+    	//console.log("SW "+direction+" : clickLoc: ("+x1+","+y1+") : emptyLoc: ("+x2+","+y2+")");
     	switch(direction) {
     		case "left":
-    			if(y1 == y2) 
-    			{
- 					return	(x1 - x2);
-    			}
+    			return ((y1 - y2) + (x1 - x2));    			
     			break;
     		case "right":
-	    		if(y1 == y2) 
-    			{
- 					return	(x2 - x1);
-    			}
-    			break;
+    			return ((y1 - y2) + (x2 - x1));
+	    		break;
     		case "up": 
-    			if(x1 == x2) 
-    			{
- 					return	(y1 - y2);
-    			}
+    			return ((x1 - x2) + (y1 - y2));
     			break;
     		case "down":
-	    		if(x1 == x2) 
-    			{
- 					return	(y2 - y1);
-    			}
-    			break;
+	    		return ((x1 - x2) + (y2- y1));
+	    		break;
     	}
     	return 0;
     },
 	    
     distance:function(x1, y1, x2, y2) {
-    	console.log("Tap : clickLoc: ("+x1+","+y1+") : emptyLoc: ("+x2+","+y2+")");
+    	//console.log("Tap : clickLoc: ("+x1+","+y1+") : emptyLoc: ("+x2+","+y2+")");
 		return Math.abs(x1 - x2) + Math.abs(y1 - y2);
     },
 
@@ -177,7 +165,7 @@ SliderCtlr.prototype = {
     		var xx = ev.position.x - ev.distanceX;
 			var yy = ev.position.y - ev.	distanceY;
 			
-    		console.log(ev.type+ " : "+ev.direction+" X:X "+ev.position.x+" : "+xx+" Y:Y "+ev.position.y+" : "+yy);
+    		//console.log(ev.type+ " : "+ev.direction+" X:X "+ev.position.x+" : "+xx+" Y:Y "+ev.position.y+" : "+yy);
     		ctlr.clickLoc.x = Math.floor( xx / ctlr.tileSize);
 		    ctlr.clickLoc.y = Math.floor( yy / ctlr.tileSize);   
 		    if (ctlr.swipeddistance(ev.direction, ctlr.clickLoc.x, 
@@ -196,7 +184,7 @@ SliderCtlr.prototype = {
 			var xx = ev.position[0].x - ctlr.offsetLeft;
 			var yy = ev.position[0].y - ctlr.offsetTop;
 			
-    		console.log(ev.type+ " X:X "+ev.position[0].x+" : "+xx+" Y:Y "+ev.position[0].y+" : "+yy);
+    		//console.log(ev.type+ " X:X "+ev.position[0].x+" : "+xx+" Y:Y "+ev.position[0].y+" : "+yy);
 			ctlr.clickLoc.x = Math.floor( xx / ctlr.tileSize);
 		    ctlr.clickLoc.y = Math.floor( yy / ctlr.tileSize);   
 		    if (ctlr.distance(ctlr.clickLoc.x, 
@@ -211,24 +199,6 @@ SliderCtlr.prototype = {
 		    }
     	}; 
 
-
-		ctlr.canvas.onclick1 = function(e) {
-			var xx = e.pageX - ctlr.offsetLeft;
-			var yy = e.pageY - ctlr.offsetTop;
-			console.log("X:X "+e.pageX+" : "+xx+" Y:Y "+e.pageY+" : "+yy);
-		    ctlr.clickLoc.x = Math.floor( xx / ctlr.tileSize);
-		    ctlr.clickLoc.y = Math.floor( yy / ctlr.tileSize);   
-		    if (ctlr.distance(ctlr.clickLoc.x, 
-				      ctlr.clickLoc.y, 
-				      ctlr.emptyLoc.x, 
-				      ctlr.emptyLoc.y) == 1) {
-				ctlr.slideTile(ctlr.emptyLoc, ctlr.clickLoc);
-				ctlr.drawTiles();
-		    }
-		    if (ctlr.solved) {
-				setTimeout(function() {alert("You solved it!");}, 500);
-		    }
-		};
     },
 
     removeListeners: function() {
