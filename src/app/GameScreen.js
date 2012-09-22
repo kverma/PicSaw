@@ -66,6 +66,7 @@ GameScreen = Backbone.View.extend({
 		    this.moveCounter = -1;
 		    this.playing = false;	    
 		    ctlr.shuffleTiles();
+		    ctlr.drawTiles();
 		    this.incrMoves(e);
 		}
 		else

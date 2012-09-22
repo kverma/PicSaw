@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="0.0.0.1" rim:header="Pic Saw">
-  <name>Pic Saw</name>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="0.0.0.1" rim:header="S=Pic Saw">
+  <name>S=Pic Saw</name>
   <description>Sliding Picture Tile Jigsaw Puzzle Game for BlackBerry PlayBook.</description>
   <author rim:copyright="2012"  href="http://kvsysapps.tumblr.com/picsaw">Krish Verma</author>
   <access subdomains="true" uri="*"/>

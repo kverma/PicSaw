@@ -14,32 +14,32 @@ var StartScreen = Backbone.View.extend({
         var el = $(this.el);
 
 //        el.fadeOut('fast', function () {
-            el.empty();
-            el.html(t.template({}));
+        el.empty();
+        el.html(t.template({}));
   //          el.fadeIn('fast');
     //    });
     },
 
     events:{
         "click #L1": "startGameLevel1",
-	"click #L2": "startGameLevel2",
-	"click #L3": "startGameLevel3",
+    	"click #L2": "startGameLevel2",
+    	"click #L3": "startGameLevel3",
     },
 
     startGameLevel1 :function () {
-	this.routeToGameLevel(1);
+    	this.routeToGameLevel(1);
     },
     
     startGameLevel2 :function () {
-	this.routeToGameLevel(2);
+    	this.routeToGameLevel(2);
     },
     
     startGameLevel3 :function () {
-	this.routeToGameLevel(3);
+    	this.routeToGameLevel(3);
     },
     
     routeToGameLevel:function(level) {
-	this.$el.off();
+    	this.$el.off();
 	//route to the main page
         App.navigate("#game/"+level, {trigger:true});
     },

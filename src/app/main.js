@@ -1,6 +1,6 @@
 /*
  *
- * ReadBerry - Read It Later/Pocket Client for BB Playbook
+ * PicSaw - Sliding Puzzle for BB Playbook
  * By: Krish Verma (http://kverma.tumblr.com)
  *
  *
@@ -32,20 +32,18 @@ $(function () {
            
         },
 
-	gamescreen: function(level) {
-	    console.log("Into the Game Level screen "+level);
-	    gs = new GameScreen({
-		id: level,
-		numofrows: level,
-		boardsize: 480,
-	    });
-//	    gs.render();
-//	    $('#main-body').html(gs.el);
-	    
-	    setTimeout(function () {
-                ctlr.init();
-            }, 100);
-	},
+        gamescreen: function(level) {
+            console.log("Into the Game Level screen "+level);
+            gs = new GameScreen({
+                id: level,
+                numofrows: level,
+                boardsize: 480,
+            });
+    //      gs.render();
+    //      $('#main-body').html(gs.el);
+            
+            setTimeout(function () {ctlr.init();}, 100);
+        },
 
     });
 
